@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> Association Rules Mining
+          <a href="index.html" class="icon icon-home"> Association Rules Mining
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -42,23 +42,27 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#description">Description</a>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pagerank">PageRank</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    <li class="toctree-l3"><a class="reference internal" href="#node-value">Node Value</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">About the Model</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="fundamental_knowledge/">Fundamental Knowledges</a>
+                  <li class="toctree-l1"><a class="" href="fundamental_knowledge.md">Fundamental Knowledges</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Pratical Guides</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="user-guide/">User Guide</a>
+                  <li class="toctree-l1"><a class="reference internal" href="user-guide.html">User Guide</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="developer-guide/">Developer Guide</a>
+                  <li class="toctree-l1"><a class="" href="developer-guide.md">Developer Guide</a>
                   </li>
               </ul>
       </div>
@@ -68,13 +72,13 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">Association Rules Mining</a>
+          <a href="index.html">Association Rules Mining</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Home</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -84,28 +88,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="association-rules-mining-documentation">Association Rules Mining documentation!</h1>
-<h2 id="description">Description</h2>
-<p>A project for mining association rules in historical transaction data. The model can be configured with the <code>config/model.toml</code> in details.</p>
-<h2 id="commands">Commands</h2>
-<p>Running the model consists of 2 parts: </p>
-<ol>
-<li><code>--gen_rules</code> indicates the procedure of mining the association rules.</li>
-<li><code>--nodes_values</code> indicates the procedure of calculating the node values.</li>
-</ol>
-<p>The model will generatet the association rules first. After that, the model can generate the node values of individual nodes.</p>
-<pre><code>python main.py --gen_rules --nodes_values --topic HKD12
-</code></pre>
-<p>The <code>--topic</code> argument is set for different scenarios. So far, possible options include </p>
+                <h1 id="welcome-to-association-rules-mining">Welcome to Association Rules Mining</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Association rule mining finds interesting associations and relationships among large sets of data items. This rule shows how frequently a set of item occurs in a transaction. Given a set of transactions, we can find rules that will predict the occurrence of an item based on the occurrences of other items in the transaction. The motivation is that, if there is a large portion of the customers buying [御結]本格和風燒牛肉 together with [御結]蒲燒三文魚腩 in the historical transaction data then we may feel confident to recommend [御結]蒲燒三文魚腩 to a customer if that customer has [御結]本格和風燒牛肉 in the basket. This example can be illustrated in the following diagram.
+<img alt="vienns-diagram" src="imgs/ViennsDiagram.svg" />
+There are 3 important metrics to evaluate the interestingness of the rules : Support, Confidence, Lift. In the example just mentioned, where the rule is denoted as <code>[御結]本格和風燒牛肉 ⇒ [御結]蒲燒三文魚腩</code>.</p>
 <ul>
-<li><code>HKD12</code> for the scenario of 12 HKD omushibi promotion; and </li>
-<li><code>Cluster</code> for studying the association rules of in the purchasing history of customers of different tiers.</li>
+<li>
+<p><strong>Support:</strong>
+    The fraction of the historical transactions containing both [御結]本格和風燒牛肉 and [御結]蒲燒三文魚腩 - that is the portion of the overlapping area relative to the white rectangle.</p>
+</li>
+<li>
+<p><strong>Confidence:</strong>
+    The fraction of the past transaction containing [御結]本格和風燒牛肉 also contains [御結]蒲燒三文魚腩 - that is the portion of the overlapping area relative to the blue circle.</p>
+</li>
+<li>
+<p><strong>Lift:</strong>
+    Measurement of how much the fraction of occurrence of [御結]蒲燒三文魚腩 is lifted given that the transaction is containing [御結]本格和風燒牛肉, comparing to all the transactions containing [御結]蒲燒三文魚腩 - that is the ratio of the confidence to the fraction occupied by the red circle.</p>
+</li>
 </ul>
+<p>More detailed mathematical formulation could be found in <a href="./fundamental_knowledge.md#Fundamental-Knowledge">this section</a>. The direction of association (i.e. <code>[御結]蒲燒三文魚腩 ⇒ [御結]本格和風燒牛肉</code> versus <code>[御結]本格和風燒牛肉 ⇒ [御結]蒲燒三文魚腩</code>) is commonly determined by the confindence of the rules. The association direction helps to identify the "causes" and "effects".</p>
+<h3 id="pagerank">PageRank</h3>
+<p>PageRank originally is an algorithm developed by Google to measure the importance of websites pages. This algorithm can also be leveraged to analyse the association graph to evaluate the <strong>centeredness</strong> of nodes. The importance is that product centeredness is related to product affinity. If a product has high pagerank, it could imply that this product could attract customers to buy more different products.</p>
+<h3 id="node-value">Node Value</h3>
+<p>With the association direction determined using <strong>confidence</strong>, the "causes" and "effects" could be identified. The monetary value "caused" by a product could be measure by summing the sales of the "effects" bought together. Additionally, the monetary value of the "causes" itself is also included when evaluting node values. This estimation heavily relies on 2 assumptions that (1) Drinks cannot generate extra item sales because buying drinks should not be the motivation of clients to purchase our other products; and (2) The direction of the association is determined by the confidence.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="fundamental_knowledge/" class="btn btn-neutral float-right" title="Fundamental Knowledges">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="user-guide.html" class="btn btn-neutral float-right" title="User Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -129,7 +140,7 @@
     
     
     
-      <span><a href="fundamental_knowledge/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="user-guide.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -150,5 +161,5 @@
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-11-25 04:03:25.946738+00:00
+Build Date UTC : 2024-12-06 09:55:52.210766+00:00
 -->

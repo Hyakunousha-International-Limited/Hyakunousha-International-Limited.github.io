@@ -1,0 +1,19 @@
+<svg width="800.0000000000001" height="600.0000000000001" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <g>
+   <title>Layer 1</title>
+   <rect fill="none" x="6.16392" y="5.5" width="786.99993" height="589.00001" id="svg_9" stroke-width="3" stroke="#000000"/>
+   <g id="svg_2" stroke="null">
+    <ellipse fill="#21b7b7" cx="350.11095" cy="310.77583" id="svg_8" rx="157.88905" ry="157.88905" opacity="0.5" stroke="null"/>
+    <ellipse fill="#ff5656" cx="445.85892" cy="292.38714" id="svg_7" rx="185.15503" ry="185.15503" opacity="0.5" stroke="null"/>
+    <text fill="#000000" x="427.91679" y="143.94849" id="svg_6" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" transform="matrix(1.04402 0 0 1.04402 -13.08 -7.57344)" stroke="null">[御結]蒲燒三文魚腩</text>
+    <text fill="#000000" x="300.65473" y="291.81165" id="svg_5" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" transform="matrix(0.958751 0 0 0.958751 -253.351 112.372)" stroke="null">[御結]本格和風燒牛肉</text>
+    <line fill="none" x1="379.9133" y1="397.01242" x2="448.3953" y2="508.61271" id="svg_4" stroke="#000000"/>
+    <text fill="#000000" x="345.22311" y="330.29478" id="svg_3" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" transform="matrix(1.09573 0 0 1.09573 -197.381 173.66)" stroke="null">[御結]本格和風燒牛肉 and [御結]蒲燒三文魚腩</text>
+   </g>
+   <text fill="#000000" stroke-width="0" x="41.42183" y="53.16871" id="svg_1" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" stroke="#000000" transform="matrix(1.75463 0 0 1.75463 -51.6432 -32.5013)">All Transactions</text>
+  </g>
+ </g>
+
+</svg>
